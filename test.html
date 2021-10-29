@@ -1,15 +1,98 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <title>聊天話題</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <style>
+    body{
+      max-width:450px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .jumbotron{
+      border-radius: 0px;
+      background-color: #0069D9;
+      color:white;
+    }
+    .btn{
+      width:100px;
+      padding: 10px;
+	  background-color: #0069D9;
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
 
+<div class="jumbotron text-center">
+  <h1><strong>聊天話題</strong></h1>
+  <p>點選聊天話題，出現一道問題</p> 
+</div>
+
+<br>
+
+<div class="container" id="msg" style="height:150px;width:300px;">	
+</div>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 class="btn btn-primary"  id="question-btn">聊天話題</h3>
+      <br>
+    </div>
+  </div>
+</div>
+
 <script>
+
+var questionAry = [
+	"你覺得自己個性如何?",
+	"喜歡什麼個性的人?",
+	"你覺得交往對象一天回一次Line才合理?",
+	"你會希望對方秒回訊息嗎?",
+	"最想去的約會地點?",
+	"未來目標是什麼?",
+	"最想去哪裡旅行?",
+	"跟家人相處得如何?",
+	"喜歡跟討厭的運動類型?",
+	"喜歡跟討厭的電影類型?",
+	"最喜歡做的事情?",
+	"最不喜歡做的事情?",
+	"中樂透後最想做的事情?",
+	"喜歡什麼職業類型的男(女)生?",
+	"喜歡怎麼樣外表的男(女)生?",
+	"喜歡怎麼樣個性的男(女)生?",
+	"男(女)生做什麼事情會覺得很貼心?",
+	"討厭交往對象做什麼事?"
+];
+
+/*
+var t= 0; 
+$("#question-btn").click(function(){
+	if(questionAry[t] == undefined){
+		t=0;
+	}
+	$("#msg").html("<h2 class='text-center'><strong>" + questionAry[t] + "</strong></h2>");
+	t++;
+});
+*/
+
 function getRandom(x){
     return Math.floor(Math.random()*x);
 };
-var arr = ['aaa','bbb','ccc'];
-var n = getRandom(arr.length);
-alert(arr[n]);            
+var n = 0;
+$("#question-btn").click(function(){
+  n = getRandom(questionAry.length);
+  $("#msg").html("<h2 class='text-center'><strong>" + questionAry[n] + "</strong></h2>");
+});
+
 </script>
+
 </body>
 </html>
